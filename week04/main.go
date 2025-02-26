@@ -6,10 +6,15 @@ import (
 	"net/http"
 )
 
-func registerHandlers() {
+func registerHandlers(idx InvIndex) {
 	// http.Handle("/foo", fooHandler)
 
 	http.HandleFunc("/search", func(w http.ResponseWriter, r *http.Request) {
+
+		// go lookup search term in index data structure
+		// write results into w (ResponseWriter)
+
+		v, ok := idx[searchTerm]
 		fmt.Fprintf(w, "Search results go here")
 	})
 
