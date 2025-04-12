@@ -65,6 +65,8 @@ func main() {
 	}
 
 	msg := resp.Choices[0].Message
+	dialogue = append(dialogue, msg)
+
 	if len(msg.ToolCalls) > 0 {
 		tc := msg.ToolCalls[0]
 		params := map[string]string{}
