@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Engine</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .search-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .search-box {
+            width: 100%;
+            max-width: 600px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-box:focus {
+            border-color: #4CAF50;
+        }
+        .search-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .search-button:hover {
+            background-color: #45a049;
+        }
+        .results {
+            margin-top: 30px;
+        }
+        .result-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .result-url {
+            color: #1a0dab;
+            text-decoration: none;
+        }
+        .result-url:hover {
+            text-decoration: underline;
+        }
+        .result-text {
+            color: #545454;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <h1>Search Engine</h1>
+        <form method="POST">
+            <input type="text" name="q" class="search-box" placeholder="Enter your search query..." value="{{.Query}}">
+            <br>
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+
+    {{if .Results}}
+    <div class="results">
+        {{range .Results}}
+        <div class="result-item">
+            <a href="{{.URL}}" class="result-url">{{.URL}}</a>
+            <div class="result-text">{{.Text}}</div>
+        </div>
+        {{end}}
+    </div>
+    {{end}}
+</body>
+</html> 

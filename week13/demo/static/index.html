@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Sorter - USFCA Style</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Number Sorter</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="numbers">Enter numbers separated by spaces:</label>
+            <input type="text" id="numbers" name="numbers" placeholder="e.g., 5 2 8 1 3">
+        </div>
+        <button type="submit">Sort Numbers</button>
+    </form>
+    {{if .Error}}
+    <div class="error">{{.Error}}</div>
+    {{end}}
+    {{if .Numbers}}
+    <div class="result">
+        <h2>Sorted Numbers:</h2>
+        <p>{{.Numbers}}</p>
+    </div>
+    {{end}}
+</body>
+</html> 
